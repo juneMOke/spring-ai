@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * A RAG (Retrieval-Augmented Generation) assistant controller that handles questions via REST API.
+ */
 @RestController
 @RequestMapping("/api/v1/rag/questions")
 class RagAssistantController {
@@ -31,6 +34,11 @@ class RagAssistantController {
         this.vectorStore = vectorStore;
     }
 
+    /**
+     * Handles POST requests to ask a question and get a response using RAG.
+     * @param question the question to ask
+     * @return the response from the chat client
+     */
     @PostMapping
     public String askQuestion(@RequestParam("question") String question) {
 
@@ -46,6 +54,11 @@ class RagAssistantController {
 
     }
 
+    /**
+     * Retrieves matching documents from the vector store based on the question.
+     * @param question the question to search for
+     * @return aggregated text of matching documents
+     */
 
     private @NonNull String retrieveMatchingDocuments(String question) {
         SearchRequest searchRequest = SearchRequest

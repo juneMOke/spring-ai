@@ -10,8 +10,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service for managing employee leaves.
+ */
 @Service
-//@Transactional
 public class EmployeeLeaveService {
 
     private final EmployeeLeaveRepository leaveRepository;

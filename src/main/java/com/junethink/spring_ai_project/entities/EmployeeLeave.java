@@ -1,13 +1,15 @@
 package com.junethink.spring_ai_project.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+/**
+ * Entity representing an employee leave record.
+ */
 @Entity
 @Table(name = "employee_leave")
 @Getter

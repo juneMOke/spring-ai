@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity representing an application user.
+ */
 @Entity
 @Table(name = "app_user")
 @Getter

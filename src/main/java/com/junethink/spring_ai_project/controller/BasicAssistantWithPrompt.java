@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * A basic assistant controller that uses system prompts to guide responses.
+ */
 @RestController
 @RequestMapping("/api/v1/prompt/questions")
 public class BasicAssistantWithPrompt {
@@ -21,6 +23,11 @@ public class BasicAssistantWithPrompt {
         this.chatClient = chatClient;
     }
 
+    /**
+     * Handles POST requests to ask a question with a predefined system prompt.
+     * @param question the question to ask
+     * @return the response from the chat client
+     */
     @PostMapping
     public String askQuestion(@RequestParam(name = "question") String question) {
         return chatClient
@@ -35,6 +42,11 @@ public class BasicAssistantWithPrompt {
                 .call()
                 .content();
     }
+    /**
+     * Handles POST requests to ask a question using an external system prompt template.
+     * @param question the question to ask
+     * @return the response from the chat client
+     */
 
     @PostMapping("/template")
     public String askQuestionWithSystemTemplate(@RequestParam(name = "question") String question) {

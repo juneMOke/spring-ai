@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.ai.chat.memory.ChatMemory.CONVERSATION_ID;
 
+/**
+ * Controller to handle employee leave-related questions using a ChatClient with tool integration.
+ */
 @RestController
 @RequestMapping("/users/")
 public class EmployeeLeaveController {
@@ -15,6 +18,13 @@ public class EmployeeLeaveController {
     public EmployeeLeaveController(@Qualifier("chatClientWithTool") ChatClient chatClient) {
         this.chatClient = chatClient;
     }
+
+    /**
+     * Handles POST requests to ask a leave-related question for a specific user.
+     * @param userId the ID of the user
+     * @param question the question to ask
+     * @return the response from the chat client
+     */
 
     @PostMapping("/{userId}/leaves")
     public String askQuestion(@PathVariable long userId, @RequestParam(name = "question") String question) {

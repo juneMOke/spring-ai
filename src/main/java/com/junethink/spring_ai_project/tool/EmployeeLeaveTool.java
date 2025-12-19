@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * A tool for managing employee leaves.
+ */
 @Component
 public class EmployeeLeaveTool {
 
